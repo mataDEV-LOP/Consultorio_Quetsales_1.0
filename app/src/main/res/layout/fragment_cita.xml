@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        card_view:cardCornerRadius="12dp"
+        card_view:cardElevation="4dp"
+        card_view:cardBackgroundColor="#26A69A"
+        android:id="@+id/fragment_Cita">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_baseline_calendario"
+                android:padding="8dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="16dp">
+
+                <TextView
+                    android:id="@+id/CitaTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cita Médica"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/CitaHora"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="08:00 - 09:00"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:drawableLeft="@drawable/ic_baseline_clock_24"
+                    android:drawablePadding="4dp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/Btn_Eliminar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/baseline_close_24" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

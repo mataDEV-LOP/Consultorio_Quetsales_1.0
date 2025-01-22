@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FormRecetaActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="30dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="70dp">
+
+            <!-- Título del formulario -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NUEVA EXPEDIENTE"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="#000"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="20dp"/>
+
+            <!-- Campo para el nombre del paciente -->
+            <TextView
+                android:id="@+id/NombrePaciente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre del Paciente"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/editTextNombrePaciente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese el nombre del paciente"
+                android:textSize="17sp"
+                android:inputType="textPersonName"/>
+
+
+
+            <!-- Sección de Fecha de Creación y Fecha de Caducidad -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <!-- Campo para la fecha de creación -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha de Nacimiento"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="8dp"/>
+
+                    <EditText
+                        android:id="@+id/editTextFechaCreacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="DD/MM/AAAA"
+                        android:textSize="15sp"
+                        android:inputType="date"/>
+                </LinearLayout>
+
+                <!-- Espacio entre los dos campos -->
+                <View
+                    android:layout_width="16dp"
+                    android:layout_height="match_parent"/>
+
+                <!-- Campo para la fecha de caducidad -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Edad"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="8dp"/>
+
+                    <EditText
+                        android:id="@+id/editTextFechaCaducidad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="00"
+                        android:textSize="15sp"
+                        android:inputType="date"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!-- Campo para el Diagnóstico -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Telefono"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/editTextDiagnostico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese el numero telefonico"
+                android:inputType="textMultiLine"
+                android:minLines="2"
+                android:textSize="18sp"/>
+
+            <!-- Campo para el Tratamiento -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Correo Eletronico"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/editTextTratamiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese correo electronico"
+                android:inputType="textMultiLine"
+                android:textSize="18sp"
+                android:minLines="2"/>
+
+            <!-- Campo para los Comentarios -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alergias"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/editTextComentarios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese sus alergias"
+                android:inputType="textMultiLine"
+                android:textSize="18sp"
+                android:minLines="2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <!-- Campo para la fecha de creación -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Temperatura (C°)"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="8dp"/>
+
+                    <EditText
+                        android:id="@+id/editTemperatura"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="00"
+                        android:textSize="15sp"
+                        android:inputType="date"/>
+                </LinearLayout>
+
+                <!-- Espacio entre los dos campos -->
+                <View
+                    android:layout_width="16dp"
+                    android:layout_height="match_parent"/>
+
+                <!-- Campo para la fecha de caducidad -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Precion Arterial"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="8dp"/>
+
+                    <EditText
+                        android:id="@+id/editprecionarterial"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="0/0"
+                        android:textSize="15sp"
+                        android:inputType="date"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!-- Botón de guardar -->
+            <!-- Botones de acción: Descargar PDF y Crear Nueva Receta -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="20dp">
+
+                <!-- Botón para Descargar PDF -->
+                <Button
+                    android:id="@+id/buttonGuardar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Guardar"
+                    android:drawableLeft="@android:drawable/ic_menu_save"
+                    android:layout_marginEnd="13dp"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:paddingStart="11dp"
+                    android:paddingEnd="11dp"
+                    android:backgroundTint="#24A898"/>
+
+                <Button
+                    android:id="@+id/buttonCancelar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancelar"
+                    android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
+                    android:layout_marginEnd="16dp"
+                    android:paddingStart="11dp"
+                    android:paddingEnd="11dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#24A898"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

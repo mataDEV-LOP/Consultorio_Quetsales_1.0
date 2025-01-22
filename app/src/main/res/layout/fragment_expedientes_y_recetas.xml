@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/k1"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".ExpedientesYRecetasFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ExpedientesyRecetasFragment">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="70dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Título del formulario -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingBottom="20dp"
+                    android:text="EXPEDIENTES Y RECETAS"
+                    android:textColor="#000"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+
+                <!-- LinearLayout con los dos botones -->
+
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/keiry_border"
+                    android:focusable="false"
+                    app:closeIcon="@drawable/baseline_close_24"
+                    app:iconifiedByDefault="false"
+                    app:queryHint="Buscar..."
+                    app:searchHintIcon="@null"
+                    app:searchIcon="@drawable/baseline_search_24" />
+
+                <LinearLayout
+                    android:id="@+id/button_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/search"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+
+                    <!-- Botón 1 -->
+                    <Button
+                        android:id="@+id/btnExpedinetes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#24A898"
+                        android:text="Nuevo Expediente"
+                        android:textColor="#FFFFFF" />
+
+
+
+                    <!-- Botón 2 -->
+                    <Button
+                        android:id="@+id/BtnNuevaReceta"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#24A898"
+                        android:text="Crear Receta"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ListView
+                        android:id="@+id/listViewExpedientes"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</LinearLayout>
