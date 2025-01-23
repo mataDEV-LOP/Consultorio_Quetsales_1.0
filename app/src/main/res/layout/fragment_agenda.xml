@@ -27,6 +27,7 @@
                 android:padding="16dp">
             </LinearLayout>
 
+            <!--Subtitulo de NoCitas -->
             <TextView
                 android:id="@+id/txtNoCitas"
                 android:layout_width="wrap_content"
@@ -49,6 +50,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="1dp"/>
 
+            <!--Boton para agregar cita -->
             <Button
                 android:id="@+id/Btn_Cita"
                 android:background="@color/k7"
