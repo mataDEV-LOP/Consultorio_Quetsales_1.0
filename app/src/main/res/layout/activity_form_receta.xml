@@ -28,9 +28,68 @@ android:padding="16dp">
             android:textStyle="bold"
             android:textSize="30sp"
             android:textColor="#000"
-            android:layout_gravity="center_horizontal"
-            android:paddingBottom="20dp"/>
+            android:layout_gravity="center_horizontal" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <!-- Campo para la fecha de creación -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <!-- Espacio entre los dos campos -->
+            <View
+                android:layout_width="16dp"
+                android:layout_height="match_parent"/>
+
+            <!-- Campo para la fecha de caducidad -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cedula del doctor"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="0.5dp"/>
+
+                <EditText
+                    android:id="@+id/editcedula"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Introducir cédula medica"
+                    android:textSize="13sp"
+                    android:inputType="date"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del Doctor"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextNombreDoctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese el nombre del doctor"
+            android:textSize="17sp"
+            android:inputType="textPersonName"/>
         <!-- Campo para el nombre del paciente -->
         <TextView
             android:layout_width="wrap_content"
