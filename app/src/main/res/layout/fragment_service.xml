@@ -60,7 +60,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$200"
+                        android:text="Contáctanos"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -136,7 +136,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$285"
+                        android:text="Contáctanos"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -212,7 +212,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$135"
+                        android:text="Contáctanos"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -289,7 +289,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$629"
+                        android:text="Contáctanos"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -365,7 +365,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$1,279"
+                        android:text="Contáctanos"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -441,7 +441,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$595"
+                        android:text="Contáctanos"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -517,7 +517,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$225"
+                        android:text="Contáctanos"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -593,7 +593,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$180"
+                        android:text="Contáctanos"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -669,7 +669,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$225"
+                        android:text="Contáctanos"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -750,7 +750,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$180"
+                        android:text="Contáctanos"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
