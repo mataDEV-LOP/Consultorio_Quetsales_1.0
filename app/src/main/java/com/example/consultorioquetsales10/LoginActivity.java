@@ -1,8 +1,13 @@
 package com.example.consultorioquetsales10;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -12,6 +17,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.EditText;
+
+import java.util.concurrent.Executor;
 
 public class LoginActivity extends AppCompatActivity {
     EditText login_username;
@@ -38,6 +45,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        Button btnIngresar = findViewById(R.id.huella_button);
+        btnIngresar.setOnClickListener(view -> showBiometricPrompt());
     }
     public Boolean validateUsername() {
         String val= login_username.getText().toString();
@@ -104,5 +114,44 @@ public class LoginActivity extends AppCompatActivity {
             alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
         }
         alertDialog.show();
+    }
+
+    private void showBiometricPrompt() {
+        Executor executor = ContextCompat.getMainExecutor(this);
+
+        androidx.biometric.BiometricPrompt biometricPrompt = new androidx.biometric.BiometricPrompt(this, executor, new androidx.biometric.BiometricPrompt.AuthenticationCallback() {
+            @Override
+            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                super.onAuthenticationError(errorCode, errString);
+
+                showToast("Autenticación error: " + errString);
+            }
+
+            @Override
+            public void onAuthenticationSucceeded(@NonNull androidx.biometric.BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded(result);
+
+                Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed();
+
+                showToast("Autenticación fallida: ");
+            }
+        });
+
+        androidx.biometric.BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                .setTitle("Autenticación biométrica")
+                .setSubtitle("Usa tu huella digital para continuar")
+                .setNegativeButtonText("Cancelar")
+                .build();
+        biometricPrompt.authenticate(promptInfo);
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 }
