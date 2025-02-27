@@ -4,7 +4,7 @@
     android:id="@+id/successConstraintLayout"
     android:layout_width="300dp"
     android:layout_height="wrap_content">
-    
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -13,12 +13,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
-        
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/successTitle"
-            android:text="Acceso correcto"
+            android:text="@string/successTitle"
             android:textColor="@color/k10"
             android:textSize="20sp"
             android:paddingTop="28dp"
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/successDesc"
-            android:text="Bienvenido!"
+            android:text="@string/successDesc"
             android:gravity="center_horizontal"
             android:textSize="18sp"
             android:layout_marginTop="16dp"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/successDone"
-            android:text="Entrar"
+            android:text="@string/successDone"
             android:textSize="14sp"
             app:cornerRadius="12dp"
             android:layout_marginTop="12dp"

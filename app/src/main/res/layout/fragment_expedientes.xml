@@ -23,7 +23,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NUEVA EXPEDIENTE"
+                android:text="@string/NuevoExpediente"
                 android:textStyle="bold"
                 android:textSize="30sp"
                 android:textColor="#000"
@@ -35,7 +35,7 @@
                 android:id="@+id/NombrePaciente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombre del Paciente"
+                android:text="@string/NombrePaciente"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:paddingBottom="8dp"/>
@@ -44,7 +44,7 @@
                 android:id="@+id/editTextNombrePaciente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ingrese el nombre del paciente"
+                android:hint="@string/IngreseNombrePaciente"
                 android:textSize="17sp"
                 android:inputType="textPersonName"/>
 
@@ -67,7 +67,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Fecha de Nacimiento"
+                        android:text="@string/FechaNacimiento"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:paddingBottom="8dp"/>
@@ -96,7 +96,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Edad"
+                        android:text="@string/Edad"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:paddingBottom="8dp"/>
@@ -114,7 +114,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Telefono"
+                android:text="@string/Telefono"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
@@ -124,7 +124,7 @@
                 android:id="@+id/editTextDiagnostico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ingrese el numero telefonico"
+                android:hint="@string/IngreseTelefono"
                 android:inputType="textMultiLine"
                 android:minLines="2"
                 android:textSize="18sp"/>
@@ -133,7 +133,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Correo Eletronico"
+                android:text="@string/Correo"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
@@ -143,7 +143,7 @@
                 android:id="@+id/editTextTratamiento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ingrese correo electronico"
+                android:hint="@string/IngreseCorreo"
                 android:inputType="textMultiLine"
                 android:textSize="18sp"
                 android:minLines="2"/>
@@ -152,7 +152,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alergias"
+                android:text="@string/Alergias"
                 android:textSize="20sp"
                 android:layout_marginTop="20dp"
                 android:textStyle="bold"
@@ -162,7 +162,7 @@
                 android:id="@+id/editTextComentarios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ingrese sus alergias"
+                android:hint="@string/IngreseAlergias"
                 android:inputType="textMultiLine"
                 android:textSize="18sp"
                 android:minLines="2"/>
@@ -183,7 +183,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Temperatura (C°)"
+                        android:text="Temperature (C°)"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:paddingBottom="8dp"/>
@@ -212,7 +212,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Precion Arterial"
+                        android:text="@string/Precion"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:paddingBottom="8dp"/>
@@ -242,7 +242,7 @@
                     android:id="@+id/buttonGuardar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Guardar"
+                    android:text="@string/Guardar"
                     android:drawableLeft="@android:drawable/ic_menu_save"
                     android:layout_marginEnd="13dp"
                     android:textSize="15dp"
@@ -255,7 +255,7 @@
                     android:id="@+id/buttonCancelar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cancelar"
+                    android:text="@string/Cancelar"
                     android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
                     android:layout_marginEnd="16dp"
                     android:paddingStart="11dp"

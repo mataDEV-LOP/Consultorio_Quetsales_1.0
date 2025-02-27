@@ -56,7 +56,7 @@
                     android:focusable="false"
                     app:closeIcon="@drawable/baseline_close_24"
                     app:iconifiedByDefault="false"
-                    app:queryHint="Buscar..."
+                    app:queryHint=""
                     app:searchHintIcon="@null"
                     app:searchIcon="@drawable/baseline_search_24" />
 

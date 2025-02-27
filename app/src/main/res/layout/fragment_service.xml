@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginStart="16dp"
-                    android:text="Analisis clínicos de sangre"
+                    android:text="@string/card_1"
                     android:textColor="#282828"
                     android:textStyle="bold"
                     android:textSize="28sp"/>
@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_marginStart="16dp"
-                    android:text="Glucosa"
+                    android:text="@string/card_1_item"
                     android:textColor="#777777"
                     android:textStyle="bold"
                     android:textSize="24sp"/>
@@ -60,7 +60,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Contáctanos"
+                        android:text="@string/button_card"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -113,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginStart="16dp"
-                    android:text="Analisis clínicos de sangre"
+                    android:text="@string/card_1"
                     android:textColor="#282828"
                     android:textStyle="bold"
                     android:textSize="28sp"/>
@@ -122,7 +122,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_marginStart="16dp"
-                    android:text="Biometrica hematica"
+                    android:text="@string/card_2_item"
                     android:textColor="#777777"
                     android:textStyle="bold"
                     android:textSize="24sp"/>
@@ -136,7 +136,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Contáctanos"
+                        android:text="@string/button_card"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -189,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginStart="16dp"
-                    android:text="Analisis clínicos de sangre"
+                    android:text="@string/card_1"
                     android:textColor="#282828"
                     android:textStyle="bold"
                     android:textSize="28sp"/>
@@ -198,7 +198,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_marginStart="16dp"
-                    android:text="Creatinina"
+                    android:text="@string/card_3_item"
                     android:textColor="#777777"
                     android:textStyle="bold"
                     android:textSize="24sp"/>
@@ -212,7 +212,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Contáctanos"
+                        android:text="@string/button_card"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -266,7 +266,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginStart="16dp"
-                    android:text="Analisis clínicos de sangre"
+                    android:text="@string/card_1"
                     android:textColor="#282828"
                     android:textStyle="bold"
                     android:textSize="28sp"/>
@@ -275,7 +275,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_marginStart="16dp"
-                    android:text="Hemoglobina y Glucosilada"
+                    android:text="@string/card_4_item"
                     android:textColor="#777777"
                     android:textStyle="bold"
                     android:textSize="24sp"/>
@@ -289,7 +289,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Contáctanos"
+                        android:text="@string/button_card"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -342,7 +342,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginStart="16dp"
-                    android:text="Analisis clínicos de sangre"
+                    android:text="@string/card_1"
                     android:textColor="#282828"
                     android:textStyle="bold"
                     android:textSize="28sp"/>
@@ -351,7 +351,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_marginStart="16dp"
-                    android:text="Perfil tiroídeo"
+                    android:text="@string/card_5_item"
                     android:textColor="#777777"
                     android:textStyle="bold"
                     android:textSize="24sp"/>
@@ -365,7 +365,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Contáctanos"
+                        android:text="@string/button_card"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -418,7 +418,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginStart="16dp"
-                    android:text="Analisis clínicos de sangre"
+                    android:text="@string/card_1"
                     android:textColor="#282828"
                     android:textStyle="bold"
                     android:textSize="28sp"/>
@@ -427,7 +427,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_marginStart="16dp"
-                    android:text="Perfil ginecologo"
+                    android:text="@string/card_6_item"
                     android:textColor="#777777"
                     android:textStyle="bold"
                     android:textSize="24sp"/>
@@ -441,7 +441,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Contáctanos"
+                        android:text="@string/button_card"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -494,7 +494,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginStart="16dp"
-                    android:text="Analisis clínicos de sangre"
+                    android:text="@string/card_1"
                     android:textColor="#282828"
                     android:textStyle="bold"
                     android:textSize="28sp"/>
@@ -503,7 +503,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_marginStart="16dp"
-                    android:text="Grupo sangineo y RH"
+                    android:text="@string/card_7_item"
                     android:textColor="#777777"
                     android:textStyle="bold"
                     android:textSize="24sp"/>
@@ -517,7 +517,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Contáctanos"
+                        android:text="@string/button_card"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -570,7 +570,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginStart="16dp"
-                    android:text="Analisis clínicos de sangre"
+                    android:text="@string/card_1"
                     android:textColor="#282828"
                     android:textStyle="bold"
                     android:textSize="28sp"/>
@@ -579,7 +579,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_marginStart="16dp"
-                    android:text="Diagnostico"
+                    android:text="@string/card_8_item"
                     android:textColor="#777777"
                     android:textStyle="bold"
                     android:textSize="24sp"/>
@@ -593,7 +593,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Contáctanos"
+                        android:text="@string/button_card"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -646,7 +646,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginStart="16dp"
-                    android:text="Analisis clínicos de sangre"
+                    android:text="@string/card_1"
                     android:textColor="#282828"
                     android:textStyle="bold"
                     android:textSize="28sp"/>
@@ -655,7 +655,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_marginStart="16dp"
-                    android:text="Examen general de orina"
+                    android:text="@string/card_9_item"
                     android:textColor="#777777"
                     android:textStyle="bold"
                     android:textSize="24sp"/>
@@ -669,7 +669,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Contáctanos"
+                        android:text="@string/button_card"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"
@@ -727,7 +727,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginStart="16dp"
-                    android:text="Analisis clínicos de sangre"
+                    android:text="@string/card_1"
                     android:textColor="#282828"
                     android:textStyle="bold"
                     android:textSize="28sp"/>
@@ -736,7 +736,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_marginStart="16dp"
-                    android:text="Uroanalisis"
+                    android:text="@string/card_10_item"
                     android:textColor="#777777"
                     android:textStyle="bold"
                     android:textSize="24sp"/>
@@ -750,7 +750,7 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Contáctanos"
+                        android:text="@string/button_card"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textSize="22sp"

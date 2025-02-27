@@ -1,14 +1,108 @@
 <resources>
-    <string name="app_name">Consultorio Quetsales 1.0</string>
+    <string name="app_name" translatable="false">Consultorio Quetsales 2.0</string>
+    <string name="selectedLanguage">Español</string>
     <string name="title_activity_services">ServicesActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
+    <string name="welcome">Bienvenido!</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    // Login
+    <string name="title_welcome">¡Bienvenido!</string>
+    <string name="usuario">Usuario</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="login_button">Iniciar sesión</string>
+    <string name="dialog_language">Español</string>
+
+    // Menu
+    <string name="top_layout1">Expedientes y recetas</string>
+    <string name="down_layout">Expedientes y recetas</string>
+    <string name="down_layout2">Servicios</string>
+    <string name="down_layout3">Agenda</string>
+
+    // Expedientes y Recetas
+    <string name="search">Buscar...</string>
+    <string name="expeyrece">EXPEDIENTES Y RECTAS</string>
+    <string name="nuevoexpediente">Nuevo Expediente</string>
+    <string name="crearreceta">Crear Receta</string>
+
+
+    //Recetas
+    <string name="NuevaReceta">NUEVA RECETA</string>
+    <string name="Cedula">Cedula del doctor</string>
+    <string name="editcedula">Introducir cédula medica</string>
+    <string name="nameDoctor">Nombre del doctor</string>
+    <string name="hintnameDoctor">Ingrese el nombre del doctor</string>
+    <string name="namePaciente">Nombre del Paciente</string>
+    <string name="hintnamePaciente">Ingrese el nombre del paciente</string>
+    <string name="fecha_start">Fecha de Creación</string>
+    <string name="fecha_end">Fecha de Caducidad</string>
+    <string name="diag">Diagnóstico</string>
+    <string name="hintDiag">Ingrese el diagnóstico</string>
+    <string name="treatment">Tratamiento</string>
+    <string name="hintTreatment">Describa el tratamiento</string>
+    <string name="comments">Comentarios</string>
+    <string name="hintComments">Escriba los comentarios</string>
+    <string name="btnPDF">Descargar PDF</string>
+    <string name="btnCancelar">Cancelar</string>
+
+    //Expedientes
+    <string name="NuevoExpediente">NUEVO EXPEDIENTE</string>
+    <string name="NombrePaciente">Nombre del Paciente</string>
+    <string name="IngreseNombrePaciente">Ingrese el nombre del paciente</string>
+    <string name="FechaNacimiento">Fecha de Nacimeinto</string>
+    <string name="Edad">Edad</string>
+    <string name="Telefono">Telefono</string>
+    <string name="IngreseTelefono">Ingrese el numero telefonico</string>
+    <string name="Correo">Correo Electronico</string>
+    <string name="IngreseCorreo">Ingrese correo electronico</string>
+    <string name="Alergias">Alergias</string>
+    <string name="IngreseAlergias">Ingrese las alergias del paciente</string>
+    <string name="Temperatura">Temperatura (C°)</string>
+    <string name="Precion">Precion Arterial</string>
+    <string name="Guardar">Guardar</string>
+    <string name="Cancelar">Cancelar</string>
+    <string name="Buscar...">Buscar</string>
+
+
+    //Servicios
+    <string name="card_1">Analisis clínicos de sangre</string>
+    <string name="card_1_item">Glucosa</string>
+    <string name="card_2_item">Biometrica hematica</string>
+    <string name="card_3_item">Creatinina</string>
+    <string name="card_4_item">Hemoglobina y Glucosilada</string>
+    <string name="card_5_item">Perfil tiroídeo</string>
+    <string name="card_6_item">Perfil ginecologo</string>
+    <string name="card_7_item">Grupo sanguineo y RH</string>
+    <string name="card_8_item">Diagnostico</string>
+    <string name="card_9_item">Examen general de orina</string>
+    <string name="card_10_item">Uroanalisis</string>
+    <string name="button_card">Contáctanos</string>
+
+    //Agenda
+    <string name="txtNoCitas">No tiene citas programadas</string>
+    <string name="Btn_Cita">Agregar Cita</string>
+    <string name="AddFecha">Seleccione la Fecha</string>
+    <string name="AddHora">Seleccione la Hora</string>
+
+    //Cita
+    <string name="TxtCitas">No tiene citas programadas</string>
+
+    //Success_Dialog
+    <string name="successTitle">Acceso correcto</string>
+    <string name="successDesc">¡Bienvenido!</string>
+    <string name="successDone">Entrar</string>
+
+    //login_denied_dialog
+    <string name="deniedTitle">Acceso incorrecto</string>
+    <string name="deniedDesc">Intente nuevamente</string>
+    <string name="deniedDone">Continuar</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="card_txt">Cita Médica</string>
 </resources>
