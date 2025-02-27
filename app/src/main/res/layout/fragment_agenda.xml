@@ -53,7 +53,7 @@
         <!--Boton para agregar cita -->
         <Button
             android:id="@+id/Btn_Cita"
-            android:background="@color/k7"
+            android:background="@drawable/btn_bkg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"

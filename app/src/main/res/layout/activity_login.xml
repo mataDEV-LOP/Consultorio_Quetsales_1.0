@@ -43,7 +43,7 @@
                     android:dropDownVerticalOffset="35dp"
                     android:popupBackground="@color/k6"
                     android:textColor="@color/black"
-                    android:text="Español" />
+                    android:text="@string/dialog_language" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -60,8 +60,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginTop="8dp"
                 android:src="@drawable/logoperfil"
                 android:scaleType="fitCenter"/>
 
@@ -79,7 +78,7 @@
                 android:id="@+id/login_username"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/keiry_border"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="8dp"
@@ -104,11 +103,21 @@
                 android:id="@+id/login_button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/k6"
                 android:text="@string/login_button"
                 android:textSize="20sp"
                 app:cornerRadius="20dp" />
+
+            <Button
+                android:id="@+id/huella_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/k6"
+                android:text="Ingresar con huella digital"
+                android:textSize="15sp" />
 
             <!--<TextView
                 android:id="@+id/RecuperarPassRedirectText"
