@@ -9,12 +9,18 @@ import androidx.biometric.BiometricPrompt;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
 
@@ -24,6 +30,13 @@ public class LoginActivity extends AppCompatActivity {
     EditText login_username;
     EditText login_password;
     Button login_button;
+    TextView Bienvenido, dialog_language, español;
+    ImageButton btnIdioma;
+    int lang_selected;
+    RelativeLayout show_lan_dialog;
+    Context context;
+    Resources resources;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -31,6 +44,73 @@ public class LoginActivity extends AppCompatActivity {
         login_username = findViewById(R.id.login_username);
         login_password = findViewById(R.id.login_password);
         login_button = findViewById(R.id.login_button);
+
+        Bienvenido = (TextView)findViewById (R.id.Bienvenido);
+        dialog_language = (TextView)findViewById (R.id.dialog_language);
+        show_lan_dialog = (RelativeLayout)findViewById (R.id.showlangdialog);
+
+        if (LocaleHelper.getLanguage (LoginActivity.this).equalsIgnoreCase ("es"))
+        {
+            context = LocaleHelper.setLocale (LoginActivity.this, "es");
+            resources = context.getResources ();
+
+            lang_selected = 0;
+            dialog_language.setText ("Español");
+            Bienvenido.setText (resources.getString (R.string.title_welcome));
+        }else if(LocaleHelper.getLanguage (LoginActivity.this).equalsIgnoreCase ("en"))
+        {
+            context = LocaleHelper.setLocale (LoginActivity.this, "en");
+            resources = context.getResources ();
+
+            lang_selected = 1;
+            dialog_language.setText ("English");
+            Bienvenido.setText (resources.getString (R.string.title_welcome));
+        }
+
+        show_lan_dialog.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View view) {
+                final String[] Language = {"Español", "English"};
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder (LoginActivity.this);
+
+                builder.setTitle ("Selecciona un Idioma")
+                        .setSingleChoiceItems (Language , lang_selected , new DialogInterface.OnClickListener () {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface , int i) {
+                                dialog_language.setText (Language[i]);
+
+                                if(Language[i].equals ("Español"))
+                                {
+                                    context = LocaleHelper.setLocale (LoginActivity.this, "es");
+                                    resources = context.getResources ();
+
+                                    lang_selected = 0;
+
+                                    Bienvenido.setText (resources.getString (R.string.title_welcome));
+                                }
+
+                                if(Language[i].equals ("English"))
+                                {
+                                    context = LocaleHelper.setLocale (LoginActivity.this, "en");
+                                    resources = context.getResources ();
+
+                                    lang_selected = 1;
+
+                                    Bienvenido.setText (resources.getString (R.string.welcome));
+                                }
+                            }
+                        })
+                        .setPositiveButton ("Ok" , new DialogInterface.OnClickListener () {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface , int i) {
+                                dialogInterface.dismiss ();
+                            }
+                        });
+                builder.create ().show ();
+            }
+        });
+
         login_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
