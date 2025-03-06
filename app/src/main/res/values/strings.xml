@@ -17,6 +17,7 @@
     <string name="contraseña">Contraseña</string>
     <string name="login_button">Iniciar sesión</string>
     <string name="dialog_language">Español</string>
+    <string name="huella_button">Ingresar con huella digital</string>
 
     // Menu
     <string name="top_layout1">Expedientes y recetas</string>

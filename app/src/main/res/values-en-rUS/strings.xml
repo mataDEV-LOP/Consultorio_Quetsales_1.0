@@ -17,6 +17,8 @@
     <string name="contraseña">Password</string>
     <string name="login_button">Sign In</string>
     <string name="dialog_language">Spanish</string>
+    <string name="huella_button">Login with fingerprint</string>
+
     <string name="top_layout1">Dossiers and prescriptions</string>
     <string name="down_layout">Dossiers and prescriptions</string>
     <string name="down_layout3">Schedule</string>
