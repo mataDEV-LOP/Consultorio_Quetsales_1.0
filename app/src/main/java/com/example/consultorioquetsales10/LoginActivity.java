@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText login_username;
     EditText login_password;
     Button login_button;
-    TextView Bienvenido, dialog_language, español;
+    TextView Bienvenido, dialog_language, español, Usuario, Contraseña, Login_Button, Huella;
     ImageButton btnIdioma;
     int lang_selected;
     RelativeLayout show_lan_dialog;
@@ -45,9 +45,13 @@ public class LoginActivity extends AppCompatActivity {
         login_password = findViewById(R.id.login_password);
         login_button = findViewById(R.id.login_button);
 
-        Bienvenido = (TextView)findViewById (R.id.Bienvenido);
-        dialog_language = (TextView)findViewById (R.id.dialog_language);
-        show_lan_dialog = (RelativeLayout)findViewById (R.id.showlangdialog);
+        Bienvenido = findViewById (R.id.Bienvenido);
+        Usuario = findViewById (R.id.login_username);
+        Contraseña = findViewById (R.id.login_password);
+        Login_Button = findViewById (R.id.login_button);
+        Huella = findViewById (R.id.huella_button);
+        dialog_language = findViewById (R.id.dialog_language);
+        show_lan_dialog = findViewById (R.id.showlangdialog);
 
         if (LocaleHelper.getLanguage (LoginActivity.this).equalsIgnoreCase ("es"))
         {
@@ -57,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
             lang_selected = 0;
             dialog_language.setText ("Español");
             Bienvenido.setText (resources.getString (R.string.title_welcome));
+
         }else if(LocaleHelper.getLanguage (LoginActivity.this).equalsIgnoreCase ("en"))
         {
             context = LocaleHelper.setLocale (LoginActivity.this, "en");
@@ -88,6 +93,8 @@ public class LoginActivity extends AppCompatActivity {
                                     lang_selected = 0;
 
                                     Bienvenido.setText (resources.getString (R.string.title_welcome));
+                                    Login_Button.setText (resources.getString (R.string.login_button));
+                                    Huella.setText (resources.getString (R.string.huella_button));
                                 }
 
                                 if(Language[i].equals ("English"))
@@ -98,6 +105,9 @@ public class LoginActivity extends AppCompatActivity {
                                     lang_selected = 1;
 
                                     Bienvenido.setText (resources.getString (R.string.welcome));
+
+                                    Login_Button.setText (resources.getString (R.string.login_button));
+                                    Huella.setText (resources.getString (R.string.huella_button));
                                 }
                             }
                         })
