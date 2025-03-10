@@ -108,7 +108,6 @@ public class LoginActivity extends AppCompatActivity {
                                     lang_selected = 1;
 
                                     Bienvenido.setText (resources.getString (R.string.welcome));
-
                                     Login_Button.setText (resources.getString (R.string.login_button));
                                     Huella.setText (resources.getString (R.string.huella_button));
                                 }
