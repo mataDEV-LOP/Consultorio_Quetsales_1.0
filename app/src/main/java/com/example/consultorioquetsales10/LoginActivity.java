@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.concurrent.Executor;
 
@@ -95,11 +96,13 @@ public class LoginActivity extends AppCompatActivity {
                                     Bienvenido.setText (resources.getString (R.string.title_welcome));
                                     Login_Button.setText (resources.getString (R.string.login_button));
                                     Huella.setText (resources.getString (R.string.huella_button));
+
                                 }
 
                                 if(Language[i].equals ("English"))
                                 {
-                                    context = LocaleHelper.setLocale (LoginActivity.this, "en");
+                                    context = LocaleHelper.setLocale (LoginActivity.this,
+                                            "en");
                                     resources = context.getResources ();
 
                                     lang_selected = 1;
