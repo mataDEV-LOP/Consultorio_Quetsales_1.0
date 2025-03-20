@@ -290,7 +290,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void openCalendarFragment() {
         CalendarFragment calendarFragment = new CalendarFragment();
-        calendarFragment.setTargetFragment(agendaFragment, 1); // Relacionar AgendaFragment
+        //calendarFragment.setTargetFragment(agendaFragment, 1); // Relacionar AgendaFragment
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragmentContainer, calendarFragment)
                 .addToBackStack(null)
@@ -321,10 +321,68 @@ public class MenuActivity extends AppCompatActivity {
                     ((MenuActivity) getActivity()).openCalendarFragment();
                 }
             });
+
+            requireActivity ().getSupportFragmentManager ().setFragmentResultListener ("citaRequest", this, (requestKey , result) -> {
+                String Fecha = result.getString ("Fecha");
+                String Hora = result.getString ("Hora");
+                addCita(Fecha, Hora);
+            });
+
             return view;
         }
 
-        @Override
+        public void addCita(String fecha, String hora) {
+            View citaView = LayoutInflater.from (getContext ()).inflate (R.layout.fragment_cita , null , false);
+
+            int Idunico = View.generateViewId ();
+            citaView.setId (Idunico);
+
+            TextView CitaTitulo = citaView.findViewById (R.id.CitaTitulo);
+            TextView CitaFecha = citaView.findViewById (R.id.CitaFecha);
+            TextView CitaHora = citaView.findViewById (id.CitaHora);
+            ImageView BtnEliminar = citaView.findViewById (id.Btn_Eliminar);
+
+            CitaTitulo.setText ("Cita Médica");
+            CitaFecha.setText (fecha);
+            CitaHora.setText (hora);
+
+            BtnEliminar.setOnClickListener (v -> {
+                Animation anim = AnimationUtils.loadAnimation (getContext () , R.anim.fragment_izquierda);
+                citaView.startAnimation (anim);
+
+                anim.setAnimationListener (new Animation.AnimationListener () {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Citas.removeView (citaView);
+                        checkCitasVisibility ();
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+                });
+            });
+
+            Citas.addView (citaView);
+            checkCitasVisibility ();
+        }
+
+        public void checkCitasVisibility() {
+            if (Citas.getChildCount () == 0) {
+                txtNoCitas.setVisibility (View.VISIBLE);
+                iconNoCitas.setVisibility (View.VISIBLE);
+            } else {
+                txtNoCitas.setVisibility (View.GONE);
+                iconNoCitas.setVisibility (View.GONE);
+            }
+        }
+    }
+
+        /*@Override
         public void onActivityResult(int Solicitud , int Resultado , @Nullable Intent data) {
             super.onActivityResult(Solicitud, Resultado, data);
             if (Solicitud == REQUEST_CODE_DATE_TIME && Resultado == RESULT_OK && data != null) {
@@ -374,7 +432,7 @@ public class MenuActivity extends AppCompatActivity {
                 iconNoCitas.setVisibility(View.GONE);
             }
         }
-    }
+    }*/
 
     // Clase CalendarFragment estática anidada
     public static class CalendarFragment extends Fragment {
@@ -400,7 +458,7 @@ public class MenuActivity extends AppCompatActivity {
                 int Hour = timePicker.getHour();
                 int Minuto = timePicker.getMinute();
 
-                String Fecha = Año + "-" + Mes + "-" + Dia;
+                String Fecha = Dia + "-" + Mes + "-" + Año;
                 String Hora = String.format("%02d:%02d", Hour, Minuto);
 
                 // Pasar los datos al fragmento objetivo
@@ -408,14 +466,18 @@ public class MenuActivity extends AppCompatActivity {
                 result.putString("Fecha", Fecha);
                 result.putString("Hora", Hora);
 
-                if (getTargetFragment() != null) {
+                requireActivity ().getSupportFragmentManager ().setFragmentResult ("citaRequest", result);
+
+                requireActivity ().getSupportFragmentManager ().popBackStack ();
+
+                /*if (getTargetFragment() != null) {
                     Intent intent = new Intent();
                     intent.putExtra("Fecha", Fecha);
                     intent.putExtra("Hora", Hora);
                     getTargetFragment().onActivityResult(getTargetRequestCode(), 0, intent);
-                }
+                }*/
 
-                requireActivity ().getSupportFragmentManager ().popBackStack ();
+                //requireActivity ().getSupportFragmentManager ().popBackStack ();
             });
 
             BtnCancelar.setOnClickListener (v -> {

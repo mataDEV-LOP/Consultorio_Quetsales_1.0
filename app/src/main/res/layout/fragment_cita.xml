@@ -10,8 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:layout_marginTop="20dp"
         card_view:cardCornerRadius="12dp"
-        card_view:cardElevation="4dp"
+        card_view:cardElevation="6dp"
         card_view:cardBackgroundColor="#26A69A"
         android:id="@+id/fragment_Cita">
 
@@ -43,6 +44,15 @@
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/CitaFecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:drawablePadding="4dp" />
 
                 <TextView
                     android:id="@+id/CitaHora"
