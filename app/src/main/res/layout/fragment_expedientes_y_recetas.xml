@@ -81,7 +81,7 @@
                         android:layout_marginEnd="8dp"
                         android:layout_weight="1"
                         android:backgroundTint="#24A898"
-                        android:text="Nuevo Expediente"
+                        android:text="@string/nuevoexpediente"
                         android:textColor="#FFFFFF" />
 
 
@@ -93,7 +93,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:backgroundTint="#24A898"
-                        android:text="Crear Receta"
+                        android:text="@string/crearreceta"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
                 <LinearLayout

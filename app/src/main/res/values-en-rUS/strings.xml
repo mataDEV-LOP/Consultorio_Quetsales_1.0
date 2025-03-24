@@ -20,6 +20,8 @@
     <string name="huella_button">Login with fingerprint</string>
 
     <string name="top_layout1">Dossiers and prescriptions</string>
+    <string name="top_layout2">Services</string>
+    <string name="top_layout3">Schedule</string>
     <string name="down_layout">Dossiers and prescriptions</string>
     <string name="down_layout3">Schedule</string>
     <string name="search">Search...</string>
