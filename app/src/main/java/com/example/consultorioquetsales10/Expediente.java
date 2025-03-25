@@ -1,6 +1,9 @@
 package com.example.consultorioquetsales10;
 
-public class Expediente {
+import java.io.Serializable;
+
+public class Expediente implements Serializable {
+    private String id;
     private String nombrePaciente;
     private String fechaNacimiento;
     private int edad;
@@ -10,12 +13,11 @@ public class Expediente {
     private double temperatura;
     private String presionArterial;
 
-    // Constructor vacío requerido por Firebase
     public Expediente() {}
 
-    // Constructor con parámetros
-    public Expediente(String nombrePaciente, String fechaNacimiento, int edad, String telefono,
+    public Expediente(String id, String nombrePaciente, String fechaNacimiento, int edad, String telefono,
                       String correoElectronico, String alergias, double temperatura, String presionArterial) {
+        this.id = id;
         this.nombrePaciente = nombrePaciente;
         this.fechaNacimiento = fechaNacimiento;
         this.edad = edad;
@@ -26,7 +28,9 @@ public class Expediente {
         this.presionArterial = presionArterial;
     }
 
-    // Getters y setters
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
+
     public String getNombrePaciente() { return nombrePaciente; }
     public void setNombrePaciente(String nombrePaciente) { this.nombrePaciente = nombrePaciente; }
 

@@ -254,7 +254,7 @@ public class MenuActivity extends AppCompatActivity {
 
             btnExpediente = view.findViewById(R.id.btnExpedinetes);
             BtnReceta = view.findViewById(id.BtnNuevaReceta);
-            buttonCancelar = view1.findViewById(R.id.buttonCancelar);
+            buttonCancelar = view1.findViewById(id.btnCancelar);
 
             // Listener para abrir el fragmento de expedientes
             btnExpediente.setOnClickListener(v -> {
