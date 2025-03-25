@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/profileImg"
-        android:layout_width="133dp"
-        android:layout_height="434dp"
+        android:layout_width="366dp"
+        android:layout_height="383dp"
         android:layout_marginTop="32dp"
         android:contentDescription="Patient Profile Image"
         app:layout_constraintEnd_toEndOf="parent"
