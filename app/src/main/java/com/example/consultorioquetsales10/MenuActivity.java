@@ -19,6 +19,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
@@ -48,7 +51,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class MenuActivity extends AppCompatActivity {
     private int selectedTab = 1;
@@ -137,7 +142,7 @@ public class MenuActivity extends AppCompatActivity {
                     //Establecer fragment de Servicios
                     getSupportFragmentManager().beginTransaction()
                             .setReorderingAllowed(true)
-                            .replace(R.id.fragmentContainer, ServiceFragment.class, null)
+                            .replace(R.id.fragmentContainer, new ServiceFragment())
                             .commit();
                     //change top
                     top_layout_txt.setText("Servicios");
@@ -285,8 +290,120 @@ public class MenuActivity extends AppCompatActivity {
         }
     }
 
+    public void openServiceFragment() {
+        ServiceFragment serviceFragment = new ServiceFragment ();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, serviceFragment)
+                .addToBackStack(null)
+                .commit();
+    }
 
+    public static class Servicio {
+        private String titulo;
+        private String descripcion;
+        private int imagen;
+        private String precio;
 
+        public Servicio(String titulo, String descripcion, int imagen, String precio) {
+            this.titulo = titulo;
+            this.descripcion = descripcion;
+            this.imagen = imagen;
+            this.precio = precio;
+        }
+
+        public String getTitulo() {
+            return titulo;
+        }
+
+        public String getDescripcion() {
+            return descripcion;
+        }
+
+        public int getImagen() {
+            return imagen;
+        }
+
+        public String getPrecio() {
+            return precio;
+        }
+    }
+
+    public static class ServicioAdapter extends RecyclerView.Adapter<ServicioAdapter.ServicioViewHolder> {
+        private List<Servicio> servicioList;
+
+        public ServicioAdapter(List<Servicio> servicioList) {
+            this.servicioList = servicioList;
+        }
+
+        @NonNull
+        @Override
+        public ServicioViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext ()).inflate (R.layout.item_servicio, parent, false);
+            return new ServicioViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ServicioViewHolder holder, int position) {
+            Servicio servicio = servicioList.get (position);
+            holder.titulo.setText(servicio.getTitulo ());
+            holder.descripcion.setText(servicio.getDescripcion ());
+            holder.imagen.setImageResource(servicio.getImagen ());
+            holder.precio.setText(servicio.getPrecio ());
+        }
+
+        @Override
+        public int getItemCount() {
+            return servicioList.size ();
+        }
+
+        public class ServicioViewHolder extends RecyclerView.ViewHolder {
+            TextView titulo, descripcion, precio;
+            ImageView imagen;
+
+            public ServicioViewHolder(@NonNull View itemView) {
+                super(itemView);
+                titulo = itemView.findViewById (R.id.servicioTitulo);
+                descripcion = itemView.findViewById (R.id.servicioDescripcion);
+                imagen = itemView.findViewById (R.id.servicioImagen);
+                precio = itemView.findViewById (R.id.servicioPrecio);
+            }
+        }
+    }
+
+    public static class ServiceFragment extends Fragment {
+        private RecyclerView recyclerView;
+        private ServicioAdapter servicioAdapter;
+        private List<Servicio> servicioList;
+
+        @Nullable
+        @Override
+        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            View view = inflater.inflate (layout.fragment_service, container, false);
+
+            recyclerView = view.findViewById (R.id.recyclerViewServicios);
+            recyclerView.setLayoutManager (new LinearLayoutManager (getContext ()));
+
+            cargarServicios();
+            servicioAdapter = new ServicioAdapter(servicioList);
+            recyclerView.setAdapter (servicioAdapter);
+
+            return view;
+        }
+
+        private void cargarServicios() {
+            servicioList = new ArrayList<> ();
+            servicioList.add(new Servicio("Análisis clínicos de sangre", "Glucosa", R.drawable.primer_card, "Contáctanos"));
+            servicioList.add(new Servicio("Análisis clínicos de sangre", "Biometrica hematica", drawable.segunda_card, "Contáctanos"));
+            servicioList.add(new Servicio("Análisis clínicos de sangre", "Creatinina", drawable.trecer_card_cuarta, "Contáctanos"));
+            servicioList.add(new Servicio("Análisis clínicos de sangre", "Hemoglobina y Glucosilada", drawable.trecer_card_cuarta, "Contáctanos"));
+            servicioList.add(new Servicio("Análisis clínicos de sangre", "Perfil tiroídeo", drawable.quinta_card, "Contáctanos"));
+            servicioList.add(new Servicio("Análisis clínicos de sangre", "Perfil ginecologo", drawable.sexta_card, "Contáctanos"));
+            servicioList.add(new Servicio("Análisis clínicos de sangre", "Grupo sanguineo y RH", drawable.setima, "Contáctanos"));
+            servicioList.add(new Servicio("Análisis clínicos de sangre", "Diagnostico", drawable.ocho, "Contáctanos"));
+            servicioList.add(new Servicio("Análisis clínicos de sangre", "Examen general de orina", drawable.nueve, "Contáctanos"));
+            servicioList.add(new Servicio("Análisis clínicos de sangre", "Uroanalisis", drawable.diez, "Contáctanos"));
+        }
+    }
 
     public void openCalendarFragment() {
         CalendarFragment calendarFragment = new CalendarFragment();
