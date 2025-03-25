@@ -116,27 +116,28 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_marginTop="18dp"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:paddingBottom="8dp"
                             android:text="Edad"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
                             android:textColor="@android:color/black"
-                            android:paddingBottom="8dp"/>
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <EditText
                             android:id="@+id/etEdad"
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
-                            android:hint="00"
-                            android:textSize="16sp"
-                            android:inputType="number"
                             android:background="@drawable/edittext"
+                            android:hint="00"
+                            android:inputType="number"
                             android:paddingStart="12dp"
-                            android:paddingEnd="12dp"/>
+                            android:paddingEnd="12dp"
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
