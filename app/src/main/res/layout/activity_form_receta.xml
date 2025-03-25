@@ -164,7 +164,7 @@
                     android:background="@drawable/edittext"
                     android:paddingStart="12dp"
                     android:paddingEnd="12dp"
-                    android:drawableStart="@drawable/baseline_person_35"
+                    android:drawableStart="@drawable/baseline_perm_identity_24"
                     android:drawablePadding="8dp"/>
 
                 <!-- Campo para el nombre del paciente -->
@@ -188,7 +188,7 @@
                     android:background="@drawable/edittext"
                     android:paddingStart="12dp"
                     android:paddingEnd="12dp"
-                    android:drawableStart="@drawable/baseline_person_35"
+                    android:drawableStart="@drawable/baseline_perm_identity_24"
                     android:drawablePadding="8dp"/>
 
                 <!-- Campo para el Diagnóstico -->
