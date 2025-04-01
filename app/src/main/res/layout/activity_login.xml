@@ -76,14 +76,14 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/login_username"
+                android:id="@+id/login_doctor_id"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/keiry_border"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="8dp"
-                android:hint="@string/usuario"
+                android:hint="ID del Doctor"
                 android:padding="8dp"
                 android:textColor="@color/black" />
 
@@ -119,17 +119,6 @@
                 android:textColor="@color/k6"
                 android:text="@string/huella_button"
                 android:textSize="15sp" />
-
-            <!--<TextView
-                android:id="@+id/RecuperarPassRedirectText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:padding="8dp"
-                android:text="¿Olvidaste tu contraseña?"
-                android:textColor="@color/k6"
-                android:textSize="18sp" />-->
 
         </LinearLayout>
 
