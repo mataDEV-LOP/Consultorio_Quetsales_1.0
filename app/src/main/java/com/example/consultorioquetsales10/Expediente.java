@@ -3,7 +3,7 @@ package com.example.consultorioquetsales10;
 import java.io.Serializable;
 
 public class Expediente implements Serializable {
-    private String id;
+    private String _id;
     private String nombrePaciente;
     private String fechaNacimiento;
     private int edad;
@@ -15,9 +15,9 @@ public class Expediente implements Serializable {
 
     public Expediente() {}
 
-    public Expediente(String id, String nombrePaciente, String fechaNacimiento, int edad, String telefono,
+    public Expediente(String _id, String nombrePaciente, String fechaNacimiento, int edad, String telefono,
                       String correoElectronico, String alergias, double temperatura, String presionArterial) {
-        this.id = id;
+        this._id = _id;
         this.nombrePaciente = nombrePaciente;
         this.fechaNacimiento = fechaNacimiento;
         this.edad = edad;
@@ -28,8 +28,8 @@ public class Expediente implements Serializable {
         this.presionArterial = presionArterial;
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String get_id() { return _id; }
+    public void set_id(String _id) { this._id = _id; }
 
     public String getNombrePaciente() { return nombrePaciente; }
     public void setNombrePaciente(String nombrePaciente) { this.nombrePaciente = nombrePaciente; }

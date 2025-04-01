@@ -1,6 +1,7 @@
 package com.example.consultorioquetsales10;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,7 +17,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.consultorioquetsales10.api.ApiService;
+import com.example.consultorioquetsales10.model.ExpedienteResponse;
+import com.example.consultorioquetsales10.network.RetrofitClient;
 import com.example.consultorioquetsales10.ui.login.ExpedienteAdapter;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ExpedientesYRecetasFragment extends Fragment {
 
@@ -26,31 +33,31 @@ public class ExpedientesYRecetasFragment extends Fragment {
     private Button btnExpedientes, btnCrearReceta;
     private ActivityResultLauncher<Intent> lanzadorNuevoExpediente;
     private ActivityResultLauncher<Intent> lanzadorNuevaReceta;
+    private ApiService apiService;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Lanzador para NuevoExpedienteActivity
+        apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
+
         lanzadorNuevoExpediente = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 resultado -> {
                     if (resultado.getResultCode() == getActivity().RESULT_OK) {
                         Log.d(TAG, "Resultado OK de NuevoExpedienteActivity, actualizando lista...");
-                        adaptadorExpedientes.setListaExpedientes(NuevoExpedienteActivity.getListaExpedientes());
+                        cargarExpedientes();
                     } else {
                         Log.d(TAG, "Resultado no OK de NuevoExpedienteActivity: " + resultado.getResultCode());
                     }
                 }
         );
 
-        // Lanzador para FormRecetaActivity
         lanzadorNuevaReceta = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 resultado -> {
                     if (resultado.getResultCode() == getActivity().RESULT_OK) {
                         Log.d(TAG, "Resultado OK de FormRecetaActivity");
-                        // Aquí puedes manejar el resultado de FormRecetaActivity si es necesario
                     } else {
                         Log.d(TAG, "Resultado no OK de FormRecetaActivity: " + resultado.getResultCode());
                     }
@@ -64,28 +71,21 @@ public class ExpedientesYRecetasFragment extends Fragment {
         View vista = inflater.inflate(R.layout.fragment_expedientes_y_recetas, container, false);
 
         recyclerViewExpedientes = vista.findViewById(R.id.recyclerViewExpedientes);
-        btnExpedientes = vista.findViewById(R.id.btnExpedinetes); // Corregimos el ID
-        btnCrearReceta = vista.findViewById(R.id.BtnNuevaReceta); // Usamos el ID correcto del XML
+        btnExpedientes = vista.findViewById(R.id.btnExpedinetes);
+        btnCrearReceta = vista.findViewById(R.id.BtnNuevaReceta);
 
-        // Verificar si los botones se inicializaron correctamente
-        if (btnExpedientes == null) {
-            Log.e(TAG, "btnExpedientes es null. Verifica el ID en fragment_expedientes_y_recetas.xml");
-            Toast.makeText(getContext(), "Error: No se encontró el botón de Expedientes", Toast.LENGTH_LONG).show();
-            return vista;
-        }
-        if (btnCrearReceta == null) {
-            Log.e(TAG, "btnCrearReceta es null. Verifica el ID en fragment_expedientes_y_recetas.xml");
-            Toast.makeText(getContext(), "Error: No se encontró el botón de Crear Receta", Toast.LENGTH_LONG).show();
+        if (btnExpedientes == null || btnCrearReceta == null) {
+            Log.e(TAG, "Uno de los botones es null. Verifica los IDs en fragment_expedientes_y_recetas.xml");
+            Toast.makeText(getContext(), "Error: No se encontraron los botones", Toast.LENGTH_LONG).show();
             return vista;
         }
 
         recyclerViewExpedientes.setLayoutManager(new LinearLayoutManager(getContext()));
-        adaptadorExpedientes = new ExpedienteAdapter(getContext()); // Pasar el contexto al adaptador
+        adaptadorExpedientes = new ExpedienteAdapter(getContext());
         recyclerViewExpedientes.setAdapter(adaptadorExpedientes);
 
-        adaptadorExpedientes.setListaExpedientes(NuevoExpedienteActivity.getListaExpedientes());
+        cargarExpedientes();
 
-        // Configurar el botón de Expedientes
         btnExpedientes.setOnClickListener(v -> {
             Log.d(TAG, "Botón Expedientes presionado");
             Intent intent = new Intent(getActivity(), NuevoExpedienteActivity.class);
@@ -97,7 +97,6 @@ public class ExpedientesYRecetasFragment extends Fragment {
             }
         });
 
-        // Configurar el botón de Crear Receta
         btnCrearReceta.setOnClickListener(v -> {
             Log.d(TAG, "Botón Crear Receta presionado");
             Intent intent = new Intent(getActivity(), FormRecetaActivity.class);
@@ -110,5 +109,48 @@ public class ExpedientesYRecetasFragment extends Fragment {
         });
 
         return vista;
+    }
+
+    private void cargarExpedientes() {
+        SharedPreferences prefs = getActivity().getSharedPreferences("DoctorPrefs", getActivity().MODE_PRIVATE);
+        String token = prefs.getString("token", null);
+
+        if (token == null) {
+            Toast.makeText(getContext(), "Error: No se encontró el token. Por favor, inicia sesión de nuevo.", Toast.LENGTH_LONG).show();
+            redirectToLogin();
+            return;
+        }
+
+        apiService.obtenerExpedientes("Bearer " + token).enqueue(new Callback<ExpedienteResponse>() {
+            @Override
+            public void onResponse(Call<ExpedienteResponse> call, Response<ExpedienteResponse> response) {
+                if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
+                    adaptadorExpedientes.setListaExpedientes(response.body().getExpedientes());
+                } else if (response.code() == 403) {
+                    Toast.makeText(getContext(), "Sesión expirada. Por favor, inicia sesión de nuevo.", Toast.LENGTH_LONG).show();
+                    redirectToLogin();
+                } else {
+                    String mensaje = response.body() != null ? response.body().getMessage() : "Error desconocido";
+                    Toast.makeText(getContext(), "Error al cargar expedientes: " + mensaje, Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ExpedienteResponse> call, Throwable t) {
+                Toast.makeText(getContext(), "Error de conexión: " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void redirectToLogin() {
+        SharedPreferences prefs = getActivity().getSharedPreferences("DoctorPrefs", getActivity().MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear();
+        editor.apply();
+
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        getActivity().finish();
     }
 }

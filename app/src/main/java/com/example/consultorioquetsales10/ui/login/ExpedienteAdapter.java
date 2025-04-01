@@ -40,17 +40,13 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Ex
     @Override
     public void onBindViewHolder(@NonNull ExpedienteViewHolder holder, int posicion) {
         Expediente expediente = listaExpedientes.get(posicion);
-        holder.tvId.setText(expediente.getId());
-        holder.tvNombre.setText(expediente.getNombrePaciente());
+        holder.tvId.setText("ID: " + expediente.get_id());
+        holder.tvNombre.setText("Nombre: " + expediente.getNombrePaciente());
 
-        // Configurar el clic en el item
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(contexto, DetalleExpedienteActivity.class);
-                intent.putExtra("expediente", expediente); // Aquí está el problema si Expediente no es Serializable
-                contexto.startActivity(intent);
-            }
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(contexto, DetalleExpedienteActivity.class);
+            intent.putExtra("expediente", expediente);
+            contexto.startActivity(intent);
         });
     }
 
