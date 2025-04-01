@@ -9,7 +9,7 @@
     android:layout_height="wrap_content"
     android:background="#FFFDF6"
     android:orientation="vertical"
-    android:layout_marginTop="60dp"
+    android:layout_marginTop="0dp"
     tools:context=".AgendaFragment">
 
     <LinearLayout
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="30dp">
+            android:padding="0dp">
         </LinearLayout>
 
         <!--Subtitulo de NoCitas -->

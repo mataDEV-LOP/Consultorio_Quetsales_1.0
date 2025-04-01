@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,20 +9,15 @@
     android:background="@color/k1"
     tools:context=".MenuActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fragmentContainer"
-        android:layout_above="@+id/bottomBar"/>
-
+    <!-- Barra superior -->
     <LinearLayout
         android:id="@+id/top_layout"
-        android:background="@color/k6"
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:background="@color/k6"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:layout_weight="1">
+        android:layout_alignParentTop="true">
 
         <ImageView
             android:id="@+id/top_layout_image"
@@ -31,8 +25,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:layout_marginTop="17dp"
-            android:src="@drawable/baseline_assignment_24_white">
-        </ImageView>
+            android:src="@drawable/baseline_assignment_24_white" />
 
         <TextView
             android:id="@+id/top_layout_txt"
@@ -43,12 +36,18 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:textSize="25sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
+    <!-- Contenedor del Fragmento -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/top_layout"
+        android:layout_above="@id/bottomBar" />
 
-
-
+    <!-- Barra inferior -->
     <LinearLayout
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
@@ -65,7 +64,7 @@
         android:layout_alignParentBottom="true"
         tools:targetApi="lollipop">
 
-        <!--Expedientes y recetas-->
+        <!-- Expedientes y recetas -->
         <LinearLayout
             android:id="@+id/ExpedientesYRecetasLayout"
             android:background="@drawable/round_back_expedientes_100"
@@ -82,8 +81,7 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/baseline_assignment_24">
-            </ImageView>
+                android:src="@drawable/baseline_assignment_24" />
 
             <TextView
                 android:id="@+id/ExpedientesYRecetasText"
@@ -93,9 +91,10 @@
                 android:textColor="@color/k11"
                 android:layout_marginStart="10dp"
                 android:textSize="16dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
-        <!--Servicios-->
+
+        <!-- Servicios -->
         <LinearLayout
             android:id="@+id/ServicesLayout"
             android:background="@android:color/transparent"
@@ -112,8 +111,7 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/baseline_assignment_ind_24">
-            </ImageView>
+                android:src="@drawable/baseline_assignment_ind_24" />
 
             <TextView
                 android:id="@+id/ServicesText"
@@ -124,10 +122,10 @@
                 android:textColor="@color/k11"
                 android:layout_marginStart="10dp"
                 android:textSize="16dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <!--Agenda-->
+        <!-- Agenda -->
         <LinearLayout
             android:id="@+id/AgendaLayout"
             android:background="@android:color/transparent"
@@ -144,8 +142,7 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/baseline_calendar_month_24">
-            </ImageView>
+                android:src="@drawable/baseline_calendar_month_24" />
 
             <TextView
                 android:id="@+id/AgendaText"
@@ -156,9 +153,7 @@
                 android:textColor="@color/k11"
                 android:layout_marginStart="10dp"
                 android:textSize="16dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
-
     </LinearLayout>
-
 </RelativeLayout>

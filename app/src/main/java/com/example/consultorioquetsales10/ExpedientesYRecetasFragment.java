@@ -2,6 +2,7 @@ package com.example.consultorioquetsales10;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,8 +40,10 @@ public class ExpedientesYRecetasFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Inicializar el servicio de API
         apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
 
+        // Configurar el lanzador para NuevoExpedienteActivity
         lanzadorNuevoExpediente = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 resultado -> {
@@ -53,6 +56,7 @@ public class ExpedientesYRecetasFragment extends Fragment {
                 }
         );
 
+        // Configurar el lanzador para FormRecetaActivity
         lanzadorNuevaReceta = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 resultado -> {
@@ -70,22 +74,39 @@ public class ExpedientesYRecetasFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_expedientes_y_recetas, container, false);
 
+        // Inicializar vistas
         recyclerViewExpedientes = vista.findViewById(R.id.recyclerViewExpedientes);
         btnExpedientes = vista.findViewById(R.id.btnExpedinetes);
         btnCrearReceta = vista.findViewById(R.id.BtnNuevaReceta);
 
+        // Verificar que los botones no sean null
         if (btnExpedientes == null || btnCrearReceta == null) {
             Log.e(TAG, "Uno de los botones es null. Verifica los IDs en fragment_expedientes_y_recetas.xml");
             Toast.makeText(getContext(), "Error: No se encontraron los botones", Toast.LENGTH_LONG).show();
             return vista;
         }
 
+        // Configurar el RecyclerView
         recyclerViewExpedientes.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerViewExpedientes.setHasFixedSize(true); // Mejorar rendimiento
+        recyclerViewExpedientes.setNestedScrollingEnabled(false); // Desactivar desplazamiento del RecyclerView
+
+        // Añadir espaciado entre los elementos del RecyclerView (16dp)
+        recyclerViewExpedientes.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                outRect.bottom = 16; // Espaciado de 16dp entre los elementos
+            }
+        });
+
+        // Inicializar y configurar el adaptador
         adaptadorExpedientes = new ExpedienteAdapter(getContext());
         recyclerViewExpedientes.setAdapter(adaptadorExpedientes);
 
+        // Cargar los expedientes desde la API
         cargarExpedientes();
 
+        // Configurar el listener para el botón "Nuevo Expediente"
         btnExpedientes.setOnClickListener(v -> {
             Log.d(TAG, "Botón Expedientes presionado");
             Intent intent = new Intent(getActivity(), NuevoExpedienteActivity.class);
@@ -97,6 +118,7 @@ public class ExpedientesYRecetasFragment extends Fragment {
             }
         });
 
+        // Configurar el listener para el botón "Crear Receta"
         btnCrearReceta.setOnClickListener(v -> {
             Log.d(TAG, "Botón Crear Receta presionado");
             Intent intent = new Intent(getActivity(), FormRecetaActivity.class);
@@ -112,6 +134,7 @@ public class ExpedientesYRecetasFragment extends Fragment {
     }
 
     private void cargarExpedientes() {
+        // Obtener el token desde SharedPreferences
         SharedPreferences prefs = getActivity().getSharedPreferences("DoctorPrefs", getActivity().MODE_PRIVATE);
         String token = prefs.getString("token", null);
 
@@ -121,33 +144,40 @@ public class ExpedientesYRecetasFragment extends Fragment {
             return;
         }
 
+        // Hacer la llamada a la API para obtener los expedientes
         apiService.obtenerExpedientes("Bearer " + token).enqueue(new Callback<ExpedienteResponse>() {
             @Override
             public void onResponse(Call<ExpedienteResponse> call, Response<ExpedienteResponse> response) {
                 if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
+                    // Actualizar el adaptador con la lista de expedientes
                     adaptadorExpedientes.setListaExpedientes(response.body().getExpedientes());
+                    Log.d(TAG, "Expedientes cargados exitosamente: " + response.body().getExpedientes().size());
                 } else if (response.code() == 403) {
                     Toast.makeText(getContext(), "Sesión expirada. Por favor, inicia sesión de nuevo.", Toast.LENGTH_LONG).show();
                     redirectToLogin();
                 } else {
                     String mensaje = response.body() != null ? response.body().getMessage() : "Error desconocido";
                     Toast.makeText(getContext(), "Error al cargar expedientes: " + mensaje, Toast.LENGTH_LONG).show();
+                    Log.e(TAG, "Error al cargar expedientes: " + mensaje);
                 }
             }
 
             @Override
             public void onFailure(Call<ExpedienteResponse> call, Throwable t) {
                 Toast.makeText(getContext(), "Error de conexión: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                Log.e(TAG, "Error de conexión al cargar expedientes: " + t.getMessage(), t);
             }
         });
     }
 
     private void redirectToLogin() {
+        // Limpiar SharedPreferences
         SharedPreferences prefs = getActivity().getSharedPreferences("DoctorPrefs", getActivity().MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.clear();
         editor.apply();
 
+        // Redirigir a la actividad de login
         Intent intent = new Intent(getActivity(), LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
