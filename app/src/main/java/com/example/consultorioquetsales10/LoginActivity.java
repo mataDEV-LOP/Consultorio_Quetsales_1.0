@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +38,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText login_doctor_id, login_password;
     Button login_button;
     TextView Bienvenido, dialog_language, Huella;
-    ImageButton btnIdioma;
     int lang_selected;
     RelativeLayout show_lan_dialog;
     Context context;
@@ -51,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         // Inicializar el idioma usando LocaleHelper
         context = LocaleHelper.onAttach(this);
         resources = context.getResources();
@@ -63,6 +66,17 @@ public class LoginActivity extends AppCompatActivity {
         dialog_language = findViewById(R.id.dialog_language);
         show_lan_dialog = findViewById(R.id.showlangdialog);
         Huella = findViewById(R.id.huella_button);
+
+        ImageView soporte = findViewById(R.id.soporte);
+        soporte.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://keirymed.com"));
+                startActivity(webIntent);
+            }
+        });
+
 
         // Configurar Retrofit
         apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
